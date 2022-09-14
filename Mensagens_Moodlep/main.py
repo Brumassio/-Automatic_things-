@@ -5,29 +5,35 @@ import time, json
 driver = Chrome()
 
 with Chrome() as driver:
+    #abrindo o site do moodlep
     driver.get("http://moodlep.uem.br/")
-
+    
     #login no Moodlep
+    ra = 'ra'
+    password = 'password'
+    link_do_chat_do_amiguinho = 'link'
+
     textbox_ra = driver.find_element('xpath','//*[@id="login_username"]')
-    textbox_ra.send_keys('ra120122')
+    textbox_ra.send_keys(ra)
 
     textbox_password = driver.find_element('xpath','//*[@id="login_password"]')
-    textbox_password.send_keys('46f6d242')
+    textbox_password.send_keys(password)
 
     botao = driver.find_element('xpath','//*[@id="login"]/div[4]/input')
     botao.click()
     
     time.sleep(4)
 
-    driver.get('https://moodlep.uem.br/message/index.php?user=26377&id=30983')
+    #abrindo o chat
+    driver.get(link_do_chat_do_amiguinho)
 
     time.sleep(4)
-
+    #Hora de enviar as mensagens !!
     mensagem_moodlep = driver.find_element('xpath','//*[@id="region-main"]/div/div/div/div[2]/div[3]/div[1]/div[1]/textarea')
     botao_fofo = driver.find_element('xpath', '//button[text()="Enviar"]')
 
     for i in range(50):
-        mensagem_moodlep.send_keys('É Vinicius Okagawa ou Okaguiwa? A oferta de lavar o rosto ainda está de pé !!')
+        mensagem_moodlep.send_keys('CÁSSIOOOOOOOOOOOO !!!!! :D')
         botao_fofo.click() 
         time.sleep(2)
     time.sleep(100)
